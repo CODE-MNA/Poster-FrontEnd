@@ -42,19 +42,19 @@ export const UserPage = (props) =>{
         const [search,setSearch] = useState("")
         useSetPage(props.title)
 
-        const {data,error,loading,getData} = useFetch("http://localhost:8080/users?name=" + search,token,false)
+        const {data,error,loading,getData} = useFetch(`${process.env.REACT_APP_BACKET_URL}/users?name=${search}`,token,false)
         
 
         const triggerSearch = async () =>{
           
 
-            await getData("http://localhost:8080/users?name=" + search,token)
+            await getData(`${process.env.REACT_APP_BACKET_URL}/users?name=${search}`,token)
             
            
         }
 
        useEffect(() => {
-         getData("http://localhost:8080/users?name=" + search,token)
+         getData(`${process.env.REACT_APP_BACKET_URL}/users?name=${search}`,token)
         
        }, []);
 

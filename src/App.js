@@ -19,14 +19,14 @@ import { useFetch } from './hooks/useFetch';
 function App() {
 
     const {login,token,logout,loggedIn,user} = useAuth();
-    const{data,error,getData} = useFetch("http://localhost:8080/auth/checkToken")
+    const{data,error,getData} = useFetch(`${process.env.REACT_APP_BACKET_URL}/auth/checkToken`)
     const {currentPage} = usePageContext();
 
     //Toggle COMMENT TO GET/remove RELOGIN FROM LOCAL STORAGE
     useEffect(() => {
 
         let getTokenValidity = async (accessToken) => {
-            await getData("http://localhost:8080/auth/checkToken",accessToken)
+            await getData(`${process.env.REACT_APP_BACKET_URL}/auth/checkToken`,accessToken)
         }
 
 

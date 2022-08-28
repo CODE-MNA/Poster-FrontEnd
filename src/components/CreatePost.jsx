@@ -15,7 +15,7 @@ export const CreatePost = (props) =>{
         const [desc, setDesc] = useState("")
         const params = useParams()
         const {token,logout} = useAuth();
-        const {data,loading,error,PostData} = usePost(`http://localhost:8080/users/${params.UserId}/posts`,{
+        const {data,loading,error,PostData} = usePost(`${process.env.REACT_APP_BACKET_URL}/users/${params.UserId}/posts`,{
             heading:name,
             content:desc
         },token)
@@ -24,7 +24,7 @@ export const CreatePost = (props) =>{
             e.preventDefault()
            
 
-        await PostData(`http://localhost:8080/users/${params.UserId}/posts`,{
+        await PostData(`${process.env.REACT_APP_BACKET_URL}/users/${params.UserId}/posts`,{
             heading:name,
             content:desc
         },token)

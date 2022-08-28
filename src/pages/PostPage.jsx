@@ -51,19 +51,19 @@ export const PostPage = ( props) =>{
     const [postToDeleteID, setPostToDeleteID] = useState("")
     const params = useParams()
     const {loggedIn,token,user,logout} = useAuth()
-    const {data,error,loading,getData} = useFetch(`http://localhost:8080/users/${params.UserId}/posts`,token,true);
+    const {data,error,loading,getData} = useFetch(`${process.env.REACT_APP_BACKET_URL}/users/${params.UserId}/posts`,token,true);
     const {data:delData,error:delError,loading:delLoading,sendDeleteRequest} = useDelete(null,token)
     useLogout(delError)
 
     const deletePost = async (id) => {
-        await sendDeleteRequest(`http://localhost:8080/users/${params.UserId}/posts/${id}`,token)
+        await sendDeleteRequest(`${process.env.REACT_APP_BACKET_URL}/users/${params.UserId}/posts/${id}`,token)
 
     }
     let updatePosts = async () => {
         if(delData && data && error && delError){
             return
         }
-        await getData(`http://localhost:8080/users/${params.UserId}/posts`,token,true)
+        await getData(`${process.env.REACT_APP_BACKET_URL}/users/${params.UserId}/posts`,token,true)
     }
     useEffect(() => {
         
