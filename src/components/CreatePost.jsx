@@ -24,7 +24,7 @@ export const CreatePost = (props) =>{
             e.preventDefault()
            
 
-        await PostData(`${process.env.REACT_APP_BACKET_URL}/users/${params.UserId}/posts`,{
+        await PostData(`${process.env.REACT_APP_BACKEND_URL}/users/${params.UserId}/posts`,{
             heading:name,
             content:desc
         },token)
