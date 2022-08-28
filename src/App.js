@@ -1,5 +1,5 @@
 
-import { Route, BrowserRouter, Routes, Outlet} from 'react-router-dom'
+import { Route, BrowserRouter, Routes, Outlet, HashRouter} from 'react-router-dom'
 import { UserPage } from './pages/UserPage';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
@@ -70,7 +70,7 @@ function App() {
     
     
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.REACT_APP_APPNAME}>
     <div className="App">
       <Header logo="/logo192.png"></Header>
       <h1 className="pageHeading">{currentPage}</h1>
@@ -81,15 +81,15 @@ function App() {
         <Route element={<PrivateRoute></PrivateRoute>}>
           {/* PrivateRoutes here */}
 
-          <Route path={process.env.REACT_APP_APPNAME + "/users"} element={<UserPage title="Users"/>}></Route>
-          <Route path={process.env.REACT_APP_APPNAME + ":UserId/posts"} element={<PostPage/>}></Route>
+          <Route path="/users" element={<UserPage title="Users"/>}></Route>
+          <Route path=":UserId/posts" element={<PostPage/>}></Route>
         </Route>
       
-      <Route path={process.env.REACT_APP_APPNAME + "/"} element={<HomePage title="Home"/>}></Route>
-      <Route path={process.env.REACT_APP_APPNAME + "/home"} element={<HomePage title="Home"/>}></Route>
+      <Route path="/" element={<HomePage title="Home"/>}></Route>
+      <Route path="/home" element={<HomePage title="Home"/>}></Route>
 
-      <Route path={process.env.REACT_APP_APPNAME + "/login"} element={<LoginPage title="Login" />}></Route>
-      <Route path={process.env.REACT_APP_APPNAME + "/register"} element={<RegisterPage title="Register" />}></Route>
+      <Route path="/login" element={<LoginPage title="Login" />}></Route>
+      <Route path="/register" element={<RegisterPage title="Register" />}></Route>
 
       <Route path="*" element={<NotFoundPage title="404 Not Found"/>}></Route>
     </Routes> 

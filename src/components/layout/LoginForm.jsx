@@ -32,7 +32,7 @@ export const LoginForm = () =>{
     const handleLoginSubmit = async (e)=>{
         e.preventDefault()
 
-        let {data,loading,error} = await postRequest("http://localhost:8080/auth/login",{
+        let {data,loading,error} = await postRequest(`${process.env.REACT_APP_BACKEND_URL}/auth/login`,{
             email:inputName,
             password:inputPassword
         })
@@ -63,7 +63,7 @@ export const LoginForm = () =>{
     let passwordProps = {
         name:'password',
         label:'Password : ',
-        type:'text',
+        type:'password',
         handleChange:onPasswordChange
     }
     let submitButtonProps = {

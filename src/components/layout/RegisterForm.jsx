@@ -37,7 +37,7 @@ export const RegisterForm = () =>{
     const handleSignupSubmit = async (e)=>{
         e.preventDefault()
 
-        let {data,loading,error} = await postRequest("http://localhost:8080/auth/register",{
+        let {data,loading,error} = await postRequest(`${process.env.REACT_APP_BACKEND_URL}/auth/register`,{
             name:inputName,
             email:inputEmail,
             passwordConfirmation:inputConfirmation,
@@ -47,7 +47,7 @@ export const RegisterForm = () =>{
        if(data){
 
             
-            window.location.href = window.location.origin + "/login"
+            window.location.href = process.env.PUBLIC_URL + "/login"
        }
        
        if(error){

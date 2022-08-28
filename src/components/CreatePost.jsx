@@ -15,7 +15,7 @@ export const CreatePost = (props) =>{
         const [desc, setDesc] = useState("")
         const params = useParams()
         const {token,logout} = useAuth();
-        const {data,loading,error,PostData} = usePost(`${process.env.REACT_APP_BACKET_URL}/users/${params.UserId}/posts`,{
+        const {data,loading,error,PostData} = usePost(`${process.env.REACT_APP_BACKEND_URL}/users/${params.UserId}/posts`,{
             heading:name,
             content:desc
         },token)
