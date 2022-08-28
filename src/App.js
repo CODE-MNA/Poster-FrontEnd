@@ -70,7 +70,7 @@ function App() {
     
     
   return (
-    <BrowserRouter basename={process.env.REACT_APP_APPNAME}>
+    <HashRouter basename={process.env.REACT_APP_APPNAME}>
     <div className="App">
       <Header logo="/logo192.png"></Header>
       <h1 className="pageHeading">{currentPage}</h1>
@@ -98,7 +98,7 @@ function App() {
 
     <Footer></Footer>
     </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
