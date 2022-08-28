@@ -1,0 +1,29 @@
+
+body{
+    margin:0;
+    font-family: 'Tajawal',sans-serif;
+    background: rgba(173, 172, 191, 0.2);
+background: linear-gradient(146deg, rgb(139, 138, 165) 0%, rgba(108,108,184,1) 19%, rgba(56,120,82,1) 83%);
+}
+
+.App{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+}
+
+.pageHeading{
+    color: #eee;
+    text-align: center;
+    text-shadow: 0 0 4px black;
+    text-decoration:underline;
+}
+
+
+
+/* animation classes */
+
+.flyIn{
+    transform: translate(4em);
+    transition: all 0.5s cubic-bezier(0.39, 0.375, 0.595, 1);
+}
