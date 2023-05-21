@@ -2,4 +2,4 @@
 
 Built using React Framework
 
-Github Repo : https://github.com/CODE-MNA/Poster-BackEnd
+Github Repo for backend : https://github.com/CODE-MNA/Poster-BackEnd
