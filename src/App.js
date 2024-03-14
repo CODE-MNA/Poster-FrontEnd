@@ -22,7 +22,6 @@ function App() {
     const{data,error,getData} = useFetch(`${process.env.REACT_APP_BACKEND_URL}/auth/checkToken`)
     const {currentPage} = usePageContext();
 
-    //Toggle COMMENT TO GET/remove RELOGIN FROM LOCAL STORAGE
     useEffect(() => {
 
         let getTokenValidity = async (accessToken) => {
@@ -70,7 +69,7 @@ function App() {
     
     
   return (
-    <HashRouter basename={process.env.REACT_APP_APPNAME}>
+    <BrowserRouter basename={process.env.REACT_APP_APPNAME}>
     <div className="App">
       <Header logo="/logo192.png"></Header>
       <h1 className="pageHeading">{currentPage}</h1>
@@ -98,7 +97,7 @@ function App() {
 
     <Footer></Footer>
     </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
