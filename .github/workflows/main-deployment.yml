@@ -15,21 +15,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Disable treating warnings as errors
         run: echo 'CI=false' >> .env
-      
-      - name: Build React app
-        run: npm run build
+
 
       - name: Set environment variables
         run: |
           echo "REACT_APP_BACKEND_URL=${{ secrets.BACKEND_URL }}" >> .env
-          echo "REACT_APP_APPNAME=${{ secrets.APP_NAME }}" >> .env
+          echo "REACT_APP_APPNAME=''" >> .env
+      
+      - name: Build React app
+        run: npm run predeploy
+
+   
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
